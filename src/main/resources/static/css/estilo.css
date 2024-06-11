@@ -1,0 +1,258 @@
+.logo img{
+    border-radius: 50%;
+    margin-top: 10px;
+    height: 80px;
+    width: auto;
+}
+
+.logo>span{
+    font-size: 1.8em;
+    color:  #ff884d;
+    width: 50%;
+}
+
+.header{
+    background-color: #ffeee6 ;
+    font-weight: bold;
+    font-family: "Bradley Hand ITC";
+    padding: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header>div:first-child{
+    width:25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-wrapper {
+    margin-left: 0;
+    padding: 25px;
+    background-color: #efeded;
+}
+
+.container{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;    
+}
+
+.row{
+  display: flex;  
+  justify-content: center;
+  margin-top: 2px;
+  padding-top: 0.5em;
+}
+
+.col-3{
+    flex: 0 0 25%;
+    max-width: 25%; 
+}
+
+.col-6{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-12{
+    flex: 0 0 100%;
+    width:100%;
+    max-width: 100%;
+}
+
+.col-3,.col-6,.col-12{
+    padding-left: 1em;
+    box-sizing:border-box;
+}
+
+.text-centered{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-dark {
+    font-weight: bold;
+}
+
+.cooper {
+    background-color: #ea6153;
+    color: #ffffff;
+}
+
+.titulo{
+    font-weight: bold;
+    text-align:center;
+    background-color: #ea6153;
+    color: #ffffff;
+}
+
+.boton{
+    border: 2px solid lightgray;
+    border-radius: 10px;
+}
+
+#tdMasc {
+    width: 20px; height:20px;
+    background-image:url(../images/M.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tdFem {
+    width: 20px; height:20px;
+    background-image:url(../images/F.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon {
+    width: 20px; height:20px;
+}
+input[type="text"]:valid.focus {box-shadow: 0 0 2px 2px blue;}
+
+input[type="text"]:valid.nofocus {box-shadow:none;}
+
+input.invalid {box-shadow: 0 0 2px 2px red;}
+
+#list:nth-child(odd) {background: #ffece6;}
+#list:nth-child(even) {background: #ffb399;}
+
+#list tr:hover {background:cadetblue}
+
+.itemoverlay{
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;;
+    z-index:1;
+    opacity:0;
+    transition: all 0.3s ease;
+}
+
+.itemoverlay.active {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+.itemview {
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: -10%;
+    left: 35%;
+    width: 30%;
+    height: 40%;
+    justify-content: center;
+    padding-top: 1em;
+    background-color: white;
+    z-index:2;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    transition: all 0.5s linear;
+}
+
+.itemview.active {
+    top: 20%;
+    visibility: visible;
+}
+
+.xmloverlay{
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;;
+    z-index:1;
+    opacity:0;
+    transition: all 0.3s ease;
+}
+
+.xmloverlay.active {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+.xmlview {
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: -10%;
+    left: 35%;
+    width: 30%;
+    height: 40%;
+    justify-content: center;
+    padding-top: 1em;
+    background-color: white;
+    z-index:2;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    transition: all 0.5s linear;
+}
+
+.xmlview.active {
+    top: 20%;
+    visibility: visible;
+}
+
+.loginoverlay{
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;;
+    z-index:1;
+    opacity:0;
+    transition: all 1s ease;
+}
+
+.loginoverlay.active {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+.loginview {
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: -10%;
+    left: 35%;
+    width: 30%;
+    height: 40%;
+    justify-content: center;
+    padding-top: 1em;
+    background-color: white;
+    z-index:2;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    transition: all 0.5s linear;
+}
+
+.loginview.active {
+    top: 20%;
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
