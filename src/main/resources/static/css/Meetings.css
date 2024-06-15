@@ -1,0 +1,158 @@
+div.Body {
+    width: 100%;
+    margin: auto;
+}
+
+.table-container {
+    display: inline-block;
+    width: 45%; /* Ancho ajustado para dejar espacio entre los elementos */
+    vertical-align: top; /* Alinear los elementos en la parte superior */
+    margin-right: 2%; /* Espacio entre la tabla y el formulario */
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.form-container {
+    display: inline-block;
+    width: 45%; /* Ancho ajustado para dejar espacio entre los elementos */
+    vertical-align: top; /* Alinear los elementos en la parte superior */
+    margin-right: 2%; /* Espacio entre la tabla y el formulario */
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+caption {
+    font-family: "Bradley Hand ITC";
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid gray;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.form {
+    max-width: 800px;
+}
+
+.form div {
+    margin-bottom: 10px;
+}
+
+.form div div {
+    margin-bottom: 5px;
+}
+
+.form div label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form div input[type="text"] {
+    width: calc(100% - 160px);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.searchRow {
+    text-align: center;
+}
+
+.searchRow input[type="text"] {
+    width: 50%; /* Ajustado al 50% del ancho de la tabla */
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 0 auto; /* Para centrar el input */
+    display: block;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#iconoBuscar {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: -100px;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#check1{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#check2{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#edit1{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#edit2{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#edit3{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+    visibility: hidden;
+}
+
+#edit4{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+    margin-left: -100px;
+}
+
+.error-feedback {
+    color: red;             /* Color del texto */
+    font-size: 14px;        /* Tamaño de la fuente */
+    margin-top: 5px;        /* Espacio superior */
+    margin-bottom: 10px;    /* Espacio inferior */
+    background-color: #ffe6e6; /* Color de fondo */
+    border: 1px solid #ffcccc; /* Borde */
+    padding: 10px;          /* Espaciado interno */
+    border-radius: 4px;     /* Bordes redondeados */
+}
+.details {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+/*style="display: flex; justify-content: flex-start;"*/

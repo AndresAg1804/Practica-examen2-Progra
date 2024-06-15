@@ -1,11 +1,15 @@
 package com.example.practica_examen2.data;
 import com.example.practica_examen2.logic.Contact;
 import com.example.practica_examen2.logic.Meeting;
+import com.example.practica_examen2.logic.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component("contactRepository")
 public class ContactRepository {
@@ -36,8 +40,21 @@ public class ContactRepository {
         return saved;
     }
 
-    MeetingRepository meetingRepository;
+    public List<Contact> findByUser(User user){
+        List<Contact> contacts= list.stream()
+                .filter( e->e.getMeeting().getOwner().getEmail().equals(user.getEmail()))
+                .map(Contact::clone)
+                .toList();
+
+        Set<String> emails = new HashSet<>();
+        return contacts.stream()
+                .filter(contact -> emails.add(contact.getEmail()))
+                .collect(Collectors.toList());
+    }
+
     @Autowired
+    MeetingRepository meetingRepository;
+
     public ContactRepository(MeetingRepository meetingRepository){
         this.meetingRepository = meetingRepository;
         list = new ArrayList<Contact>();

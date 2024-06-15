@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../../css/Meetings.css">
+    <script src="../../js/menu.js"></script>
+    <script src="controller.js"> </script>
+    <title>meetings</title>
+</head>
+<body>
+<header class="header" id="menu"></header>
+<div class="Body">
+    <div class="table-container">
+        <table class="table">
+            <caption>Meetings</caption>
+            <thead>
+            <tr class="searchRow">
+                <td>
+                    <img src="../../images/addMeeting.png" alt="edit" id="edit1"/>
+                </td>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>State</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="listMeetings">
+            </tbody>
+        </table>
+    </div>
+    <div class="form-container">
+        <h1 class="caption">Meeting Details</h1>
+        <form id="editForm">
+            <div class="form">
+                <div></div><div></div><div></div><div></div>
+                <div class="details">
+                    <label>Title</label>
+                    <span id="titleForm"></span>
+                </div>
+                <div class="details">
+                    <label>State</label>
+                    <span id="stateForm"></span>
+                </div>
+                <div class="details">
+                    <label>Date</label>
+                    <span id="dateForm"></span>
+                </div>
+                <div class="details">
+                    <label><b>Contacts</b></label>
+                    <div id="contactForm">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer class = "footer" id="footer"></footer>
+</body>
+</html>
