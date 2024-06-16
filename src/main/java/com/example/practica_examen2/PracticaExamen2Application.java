@@ -22,8 +22,6 @@ public class PracticaExamen2Application {
                 .authorizeHttpRequests(customizer -> customizer
                         .requestMatchers("/api/login/login").permitAll()
                         .requestMatchers("/api/login/logout").authenticated()
-                        .requestMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("ADM")
-                        .requestMatchers("/api/**").hasAnyAuthority("ADM","CLI")
                         .requestMatchers("/**").permitAll()
                 )
                 .exceptionHandling(customizer -> customizer

@@ -16,18 +16,12 @@
         <table class="table">
             <caption>Meetings</caption>
             <thead>
-            <tr class="searchRow">
-                <td>
-                    <img src="../../images/addMeeting.png" alt="edit" id="edit1"/>
-                </td>
-                </td>
-            </tr>
             <tr>
                 <th></th>
                 <th>Title</th>
                 <th>State</th>
                 <th>Date</th>
-                <th></th>
+                <th class="edit1" id="addImage"><img src="../../images/addMeeting.png"> </th>
             </tr>
             </thead>
             <tbody id="listMeetings">
@@ -58,6 +52,49 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div id="itemoverlay" class="itemoverlay"></div>
+
+    <!--item-->
+    <div id="itemview" class='itemview'>
+        <div class='col-12'>
+            <div>
+                <form name="formulario">
+                    <div class='container'>
+                        <span class="close-btn1">&times;</span>
+                        <div class='row'><div class='col-12 text-centered cooper'>New Meeting</div></div>
+                        <div class='row'><div class='col-3 text-right'>Title</div><div class='col-6'><input type="text" id="titleMeet" value=""></div></div>
+                        <div class='row'><div class='col-3 text-right'>State</div><div class='col-6'><select id="stateMeet"></select></div></div>
+                        <div class='row'><div class='col-3 text-right'>Date</div><div class='col-6'><input type="date" id="dateMeet" value=""></div></div>
+                        <div class='row'><div class='sombreado'>Contacts</div></div>
+                        <div class='row2'>
+                            <div>
+                                <img id = "edit5" src="../../images/addContact.png">
+                                <select id="contactMeet">
+                                </select>
+                            </div>
+                            <div>OR</div>
+                            <div>
+                                <img id = "edit6" src="../../images/addContact.png">
+                                <input type="text" id="contactCorreo" value="">
+                            </div>
+                            <div>
+                                <table class="table" id = "table2">
+                                    <tbody id="contacts-list">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class='row'>
+                                <div class='col-6 text-centered cooper'>
+                                    <input id="aplicar" class="boton" type="button" value="Aplicar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <footer class = "footer" id="footer"></footer>

@@ -155,4 +155,25 @@ tr:hover {
     margin-bottom: 10px;
 }
 
+#edit5{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#edit6{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
+#edit7{
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle; /* Alineación vertical */
+}
+
 /*style="display: flex; justify-content: flex-start;"*/

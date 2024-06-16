@@ -13,13 +13,11 @@ document.addEventListener("DOMContentLoaded",loaded);
 async function loaded(event){
     try{ await menu();} catch(error){return;}
 
-    //document.getElementById("search").addEventListener("click",search);
-    //document.getElementById("new").addEventListener("click",ask);
+    document.querySelector("#addImage").addEventListener("click",ask);
 
-    //document.getElementById("itemoverlay").addEventListener("click",toggle_itemview);
+    document.querySelector("#itemview #aplicar").addEventListener("click", add);
 
-    //document.querySelector("#itemview #registrar").addEventListener("click",add);
-    //document.querySelector("#itemview #cancelar").addEventListener("click",toggle_itemview);
+    document.querySelector('.close-btn1').addEventListener("click", toggle_itemview);
 
     fetchAndList();
 }
@@ -61,11 +59,72 @@ async function loadContacts(id){
 
 }
 
+async function loadContactsByUser(){
+    const request = new Request(api+'/contacts/byUser', {method: 'GET', headers: { }});
+    const response = await fetch(request);
+    if (!response.ok) {errorMessage(response.status);return;}
+    state.contacts = await response.json();
+}
 
-function ask(){
+async function ask(){
     empty_item();
+    await loadContactsByUser();
+    let stateSelect = document.getElementById("stateMeet");
+    stateSelect.innerHTML = '';
+    let options = ['UPCOMING', 'PUBLISHED', 'OVERDUE'];
+    options.forEach(option => {
+        let opt = document.createElement('option');
+        opt.value = option;
+        opt.textContent = option;
+        stateSelect.appendChild(opt);
+    });
+    let emailSelect = document.getElementById("contactMeet");
+    let img = document.getElementById("edit5");
+    img.addEventListener("click",addEContact);
+    state.contacts.forEach( contacto => {
+        const option = document.createElement('option');
+        option.value = contacto.email;
+        option.textContent = contacto.email;
+        emailSelect.appendChild(option);
+    });
+    let img2 = document.getElementById("edit6");
+    img2.addEventListener("click",addNContact);
     toggle_itemview();
     state.mode="ADD";
+}
+
+function addEContact(){
+    let contact = {};
+    contact.email=document.getElementById('contactMeet').value;
+    state.contactsU.push(contact);
+    updateContactList();
+}
+function addNContact(){
+    let contact = {};
+    contact.email=document.getElementById('contactCorreo').value;
+    state.contactsU.push(contact);
+    updateContactList();
+}
+
+function updateContactList(){
+    var listadoC=document.getElementById("contacts-list");
+    listadoC.innerHTML="";
+    state.contactsU.forEach( itemCExt=>updateContactListItem(listadoC,itemCExt));
+}
+
+function updateContactListItem(listadoC,itemCExt){
+    var tr =document.createElement("tr");
+    tr.innerHTML=`
+    <td>${itemCExt.email}</td>
+    <td id="editC"><img src="../../images/remove.png" id="edit7"></td>
+    `;
+    tr.querySelector("#editC").addEventListener("click",()=>{deleteContact(itemCExt);});
+    listadoC.append(tr);
+}
+
+function deleteContact(contact){
+    state.contactsU = state.contactsU.filter(c => c.email !== contact.email);
+    updateContactList();
 }
 
 function toggle_itemview(){
@@ -77,7 +136,16 @@ function empty_item(){
     state.item = {id:"", title:"", state:"", date:"", owner:""};
     state.contacts = [];
 }
-
+function empty_everything(){
+    empty_item();
+    state.contactsU = [];
+    document.getElementById("titleMeet").value = "";
+    document.getElementById("stateMeet").value = "";
+    document.getElementById("dateMeet").value = "";
+    document.getElementById("contactMeet").value = "";
+    document.getElementById("contactCorreo").value = "";
+    document.getElementById("contacts-list").innerHTML = "";
+}
 function handleRowClick(item){
     state.item = item;
     render_item();
@@ -102,22 +170,38 @@ function render_item(){
 }
 
 
+function addContacts(){
+    state.contactsU.forEach(function(c) {
+        c.meeting=state.item;
+    });
+    let request=new Request(api+'/addContacts', {method:'POST',
+        headers:{'CONTENT-Type': 'application/json'},
+        body: JSON.stringify(state.contactsU)});
+    (async ()=>{
+        const response= await fetch(request);
+        if(!response.ok){errorMessage(response.status);return;}
+        empty_everything();
+    })();
+}
 
 
 function add(){
-    state.item.title = document.getElementById("title").value;
-    state.item.state = document.getElementById("state").value;
-    state.item.date = document.getElementById("date").value;
-    state.item.owner = document.getElementById("owner").value;
-    state.item.contacts = document.getElementById("contacts").value;
-
+    state.item.title = document.getElementById("titleMeet").value;
+    state.item.state = document.getElementById("stateMeet").value;
+    state.item.date = document.getElementById("dateMeet").value;
+    state.item.owner = loginstate.user;
     let request = new Request(api, {method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(state.item)});
-    (async ()=>{
+    (async () => {
         const response = await fetch(request);
-        if (!response.ok) {errorMessage(response.status);return;}
-        fetchAndList();
+        if (!response.ok) {
+            errorMessage(response.status);return;
+        }
+        state.item = await response.json();
+        await addContacts();
         toggle_itemview();
+        fetchAndList();
     })();
 }
+
